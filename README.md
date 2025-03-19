@@ -1,1 +1,1 @@
-# SmartBridge-Fullstack Development MongoDB 
+# SmartBridge-Fullstack Development MongoDB
