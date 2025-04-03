@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
-const Category = require("../model/Category")
+const Category = require("../model/Category");
+const Transaction = require('../model/Transaction');
 
 const categoryController = {
     //!add
@@ -41,10 +42,49 @@ const categoryController = {
     }),
 
     //!update
-    update: asyncHandler(async(req, res)=> {}),
+    update: asyncHandler(async(req, res)=> {
+        const { categoryId } = req.params;
+        const { type, name } = req.body;
+        const normalizedName = name.toLowerCase();
+        const category = await Category.findById(categoryId);
+        if(!category && category.user.toString() !== req.user.toString()) {
+            throw new Error("Category not found or user not authorized");
+        }
+        const oldName = category.name;
+        //!Update category properties
+        category.name = normalizedName || category.name;
+        category.type = type || category.type;
+        const updatedCategory = await category.save()
+        //Updated affected transaction
+        if(oldName !== updatedCategory.name){
+            await Transaction.updateMany(
+                {
+                    user: req.user,
+                    category: oldName,
+                },
+                { $set: { category: updatedCategory.name } }
+            );
+        }
+        res.json(updatedCategory);
+    }),
 
     //!delete
-    delete: asyncHandler(async(req, res)=> {}),
+    delete: asyncHandler(async(req, res)=> {
+        const category = await Category.findById(req.params.id);
+        if(category && category.user.toString() === req.user.toString()){
+            //!Update transaction that have this category
+            const defaultCategory = 'Uncategorized';
+            await Transaction.updateMany(
+                {user: req.user, category: category.name},
+                { $set: { category: defaultCategory } }
+            );
+            //!Remove the category
+            await Category.findByIdAndDelete(req.params.id);
+            res.json({message: "Category removed and transactions updated" });
+        }else{
+            res.json({message: "Category not found or user not authorized" });
+        }
+    }),
 };
 
 module.exports = categoryController;
