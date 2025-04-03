@@ -13,5 +13,17 @@ userRouter.get(
     isAuthenticated, 
     userController.profile
 );
+//!Change Password
+userRouter.put(
+    "/api/v1/users/change-password", 
+    isAuthenticated, 
+    userController.changeUserPassword
+);
+//!Update Profile
+userRouter.put(
+    "/api/v1/users/update-profile", 
+    isAuthenticated, 
+    userController.updateUserProfile
+);
 
 module.exports = userRouter;
