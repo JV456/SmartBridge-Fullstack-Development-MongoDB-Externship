@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const userRouter = require("./routes/userRouter");
 const categoryRouter = require("./routes/categoryRouter");
 const errorHandler = require("./middlewares/errorHandlerMiddleware");
+const transactionRouter = require("./routes/transactionRouter");
 const app = express();
 
 //!Connect to mongodb
@@ -17,6 +18,7 @@ mongoose
 //!Routes
 app.use("/", userRouter);
 app.use("/", categoryRouter);
+app.use("/", transactionRouter);
 
 //! Error
 app.use(errorHandler);
