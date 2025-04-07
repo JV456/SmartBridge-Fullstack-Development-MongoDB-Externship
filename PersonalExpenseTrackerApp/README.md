@@ -57,3 +57,12 @@ A modern and responsive SaaS-style Expense Tracker built with **React**, **Tailw
 - Protected routes (via `AuthRoute`) ensure access only when logged in.
 - API headers include Bearer token.
 - React Query fetches only after auth is ready (via `useAuthReady` hook).
+
+
+
+## 📧 Contact
+
+> Built by Jai Vadula, Devansh Mittal, Abhay Prasad
+> 📫 Email: jai.vadula2021@vitbhopal.ac.in, abhay.prasad2021@vitbhopal.ac.in, devansh.mittal2021@vitbhopal.ac.in
+
+
