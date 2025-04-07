@@ -62,7 +62,7 @@ A modern and responsive SaaS-style Expense Tracker built with **React**, **Tailw
 
 ## 📧 Contact
 
-> Built by Jai Vadula, Devansh Mittal, Abhay Prasad
-> 📫 Email: jai.vadula2021@vitbhopal.ac.in, abhay.prasad2021@vitbhopal.ac.in, devansh.mittal2021@vitbhopal.ac.in
+- Built by Jai Vadula, Devansh Mittal, Abhay Prasad
+- 📫 Email: jai.vadula2021@vitbhopal.ac.in, abhay.prasad2021@vitbhopal.ac.in, devansh.mittal2021@vitbhopal.ac.in
 
 
