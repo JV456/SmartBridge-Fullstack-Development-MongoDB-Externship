@@ -134,16 +134,6 @@ const LoginForm = () => {
           )}
         </div>
 
-        {/* Forgot Password Link */}
-        <div className="flex justify-end">
-          <a 
-            href="/forgot-password" 
-            className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
-          >
-            Forgot password?
-          </a>
-        </div>
-
         {/* Submit Button */}
         <div className="pt-2">
           <button
