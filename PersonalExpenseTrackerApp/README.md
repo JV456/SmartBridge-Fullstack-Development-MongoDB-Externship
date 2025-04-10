@@ -6,6 +6,10 @@ A modern and responsive SaaS-style Expense Tracker built with **React**, **Tailw
 
 
 
+https://github.com/user-attachments/assets/71723132-ad64-4811-abb8-f17d2b44c7ad
+
+
+
 ## 📦 Features
 
 ### ✅ Authentication
